@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE ONE BURGER</title>
+    <style>
+        body {
+            font-family: arial;
+        }
+
+        #app {
+            width: 400px;
+        }
+
+        #menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .item {
+            background-color: #8a8aeb;
+            padding: 20px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+
+        .order {
+            margin-top: 30px;
+        }
+
+        .slot {
+            border: 3px solid #36007c9d;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .selected {
+            background-color: #66FF66;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <div id=menu>
+            <div class="item" onclick="toggleSelect(this)">BUN</div>
+            <div class="item" onclick="toggleSelect(this)">PATTY</div>
+            <div class="item" onclick="toggleSelect(this)">CHEESE</div>
+            <div class="item" onclick="toggleSelect(this)">LETTUCE</div>
+            <div class="item" onclick="toggleSelect(this)">TOMATO</div>
+            <div class="item" onclick="toggleSelect(this)">PINEAPPLE</div>
+            <div class="item" onclick="toggleSelect(this)">PICKLES</div>
+            <div class="item" onclick="toggleSelect(this)">ONIONS</div>
+        </div>
+
+        <button onclick="addToOrder()">add to order</button>
+
+        <div id="order">
+
+        </div>
+
+    </div>
+</body>
+<script>
+    function toggleSelect(element) {
+        element.classList.toggle("selected");
+    }
+
+    function addToOrder() {
+        var orderbox = document.getElementById("order");
+        var selectedItems = document.getElementsByClassName("selected");
+
+        var Burger = document.createElement('div');
+
+        for (const item of selectedItems) {
+            Burger.innerHTML += item.textContent + " ";
+        }
+
+        orderbox.appendChild(Burger)
+    }
+</script>
+
+</html>
